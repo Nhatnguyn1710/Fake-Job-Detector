@@ -1,4 +1,5 @@
 streamlit
 scikit-learn
 matplotlib
+beautifulsoup4
 numpy
