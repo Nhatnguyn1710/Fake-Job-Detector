@@ -4,3 +4,4 @@ matplotlib
 beautifulsoup4
 numpy
 nltk
+wordninja
