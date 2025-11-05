@@ -86,23 +86,10 @@ def nlp_process(text):
     return tokens
 
 # Tải mô hình
-#@st.cache_resource
-#def load_model():
-    #try:
-        #model = joblib.load('C:\\Users\\DELL 15\\Documents\\Zalo Received Files\\fraud_detection_model_smote.pkl')
-        # ==== PHẦN CODE MỚI ====
 @st.cache_resource
 def load_model():
     try:
-        # DÙNG TÊN FILE ĐƠN GIẢN - cùng thư mục
-        model = joblib.load('fraud_detection_model_smote.pkl')
-        st.sidebar.success("✅ Model loaded successfully!")
-        return model
-    except Exception as e:
-        st.sidebar.error(f"❌ Model loading failed: {str(e)}")
-        st.error(f"Current directory: {os.getcwd()}")
-        st.error(f"Files present: {os.listdir('.')}")
-        return None
+        model = joblib.load('C:\\Users\\DELL 15\\Documents\\Zalo Received Files\\fraud_detection_model_smote.pkl')
         st.sidebar.success("✅ Model loaded successfully!")
         return model
     except Exception as e:
