@@ -7,3 +7,4 @@ wordninja
 scikit-learn
 numpy
 Pillow
+imbalanced-learn
