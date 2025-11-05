@@ -89,8 +89,7 @@ def nlp_process(text):
 @st.cache_resource
 def load_model():
     try:
-        #model = joblib.load('C:\\Users\\DELL 15\\Documents\\Zalo Received Files\\fraud_detection_model_smote.pkl')
-        model = joblib.load('fraud_detection_model_smote.pkl')
+        model = joblib.load('C:\\Users\\DELL 15\\Documents\\Zalo Received Files\\fraud_detection_model_smote.pkl')
         st.sidebar.success("✅ Model loaded successfully!")
         return model
     except Exception as e:
@@ -98,19 +97,12 @@ def load_model():
         return None
 
 model = load_model() 
-WINDOWS_LOGO_PATH = "da-hoc-khoa-hoc-hue-3png-1.webp"  # <-- chỉnh đúng file
+WINDOWS_LOGO_PATH = r"C:\Users\DELL 15\Pictures\da-hoc-khoa-hoc-hue-3png-1.webp"  # <-- chỉnh đúng file
 
-def _logo_src():
-    # TÌM FILE LOGO TRONG CÙNG THƯ MỤC
-    possible_logos = ["da-hoc-khoa-hoc-hue-3png-1.webp"]
-    
-    for logo_file in possible_logos:
-        if os.path.exists(logo_file):
-            mime = mimetypes.guess_type(logo_file)[0] or "image/webp"
-            with open(logo_file, "rb") as f:
-                b64 = base64.b64encode(f.read()).decode()
-            return f"data:{mime};base64,{b64}"
-    return None
+def _logo_src(path_asset="assets/icon/logo.png", path_win=WINDOWS_LOGO_PATH):
+    chosen = path_win if (path_win and os.path.exists(path_win)) else path_asset
+    if not os.path.exists(chosen):
+        return None
     mime = mimetypes.guess_type(chosen)[0] or "image/png"
     with open(chosen, "rb") as f:
         b64 = base64.b64encode(f.read()).decode()
